@@ -35,9 +35,9 @@ const LandingSection = () => {
         formik.resetForm()
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().min(2, 'Must be higher than 2 characters').max(15, 'Must be 15 characters or less').required('Required'),
-      email: Yup.string().email('Invalid email address').required('Required'),
-      comment: Yup.string().required('Required')
+      firstName: Yup.string().required('Required').min(2, 'Must be higher than 2 characters'),
+      email: Yup.string().required('Required').email('Invalid email address'),
+      comment: Yup.string().required('Required').min(25, 'Message length must be higher than 25 chars')
     }),
   });
 
@@ -48,7 +48,6 @@ const LandingSection = () => {
       py={16}
       spacing={8}
     >
-      <Alert />
       <VStack w="1024px" p={32} alignItems="flex-start">
         <Heading as="h1" id="contactme-section">
           Contact me
